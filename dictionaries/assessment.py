@@ -63,7 +63,7 @@ def get_melon_price(melon_name):
     melons = {"Watermelon": 2.95,
               "Cantaloupe": 2.50,
               "Musk": 3.25,
-              "Christmas": 14.25
+              "Christmas": 14.25,
               }
 
     return melons.get(melon_name, "No price found")
@@ -143,7 +143,28 @@ def translate_to_pirate_talk(phrase):
         'me swabbie be not a man!'
     """
 
-    return ""
+    english_to_prirate = {"sir": "matey",
+                          "hotel": "fleabag inn",
+                          "student": "swabbie",
+                          "man": "matey",
+                          "professor": "foul blaggart",
+                          "restaurant": "galley",
+                          "your": "yer",
+                          "excuse": "arr",
+                          "students": "swabbies",
+                          "are": "be",
+                          "restroom": "head",
+                          "my": "me",
+                          "is": "be",
+                          }
+
+    pirate_translation = []
+
+    for english_word in phrase.split(" "):
+        pirate_translation.append(english_to_prirate.get(english_word,
+                                  english_word))
+
+    return " ".join(pirate_translation)
 
 
 def kids_game(names):
