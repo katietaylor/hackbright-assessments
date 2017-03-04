@@ -42,7 +42,7 @@ class Question(object):
         """ ."""
 
         print self.question
-        self.user_answer = raw_input()
+        self.user_answer = raw_input("> ")
 
         return self.correct_answer.lower() == self.user_answer.lower()
 
@@ -61,3 +61,20 @@ class Exam(object):
 
         self.question = Question(question, correct_answer)
         self.questions.append(self.question)
+
+    def administer(self):
+        """administer the exam and return a score displayed as a percent"""
+
+        self.score = 0
+
+        for question in self.questions:
+            if question.ask_and_evaluate() is True:
+                self.score += 1.0
+
+        self.score_percent = self.score / len(self.questions) * 100
+        return self.score_percent
+
+
+
+
+
