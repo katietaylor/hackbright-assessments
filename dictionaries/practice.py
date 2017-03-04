@@ -31,8 +31,8 @@ def without_duplicates(words):
         >>> sorted(without_duplicates([111111, 2, 33333, 2]))
         [2, 33333, 111111]
     """
-
-    return []
+    without_duplicates = list(set(words))
+    return without_duplicates
 
 
 def find_unique_common_items(items1, items2):
