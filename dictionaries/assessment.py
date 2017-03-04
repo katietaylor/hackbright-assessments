@@ -4,6 +4,7 @@
 dictionaries and sets.
 """
 
+
 def count_words(phrase):
     """Count unique words in a string.
 
@@ -29,7 +30,12 @@ def count_words(phrase):
         {'Porcupine': 1, 'do.': 1, 'porcupine': 1, 'see,': 1}
     """
 
-    return {}
+    words = {}
+
+    for word in phrase.split(" "):
+        words[word] = words.get(word, 0) + 1
+
+    return words
 
 
 def get_melon_price(melon_name):
