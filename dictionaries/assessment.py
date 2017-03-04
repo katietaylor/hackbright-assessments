@@ -88,7 +88,20 @@ def word_length_sorted(words):
         [(2, ['ok']), (9, ['porcupine'])]
     """
 
-    return []
+    word_lengths = {}
+
+    for word in words:
+        length = len(word)
+        word_lengths[length] = word_lengths.get(length, []) + [word]
+
+    # word_lengths = sorted(word_lengths.items())
+    # for tup in word_lengths:
+    #     tup[1].sort()
+
+    word_lengths = [(length, sorted(words)) for (length, words) in
+                    sorted(word_lengths.items())]
+
+    return word_lengths
 
 
 def translate_to_pirate_talk(phrase):
