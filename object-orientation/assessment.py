@@ -73,7 +73,12 @@ class Exam(object):
             if question.ask_and_evaluate() is True:
                 self.score += 1.0
 
-        self.score_percent = self.score / len(self.questions) * 100
+        try:
+            self.score_percent = self.score / len(self.questions) * 100
+        except ZeroDivisionError:
+            self.score_percent = None
+            print "{} can't be administered without questions.".format(self.name)
+
         return self.score_percent
 
 ###############################################################################
@@ -117,7 +122,3 @@ def example():
     student = Student("Will", "Riker", "1701-D Enterprise")
 
     take_test(exam, student)
-
-
-
-
