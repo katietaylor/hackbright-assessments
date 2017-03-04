@@ -18,6 +18,8 @@ Part 1: Discussion
 
 """
 
+# Parts 2 and 3
+
 
 class Student(object):
     """Creates a new student and assigns a name and address."""
@@ -30,7 +32,7 @@ class Student(object):
 
 
 class Question(object):
-    """Creates questions and answers"""
+    """Creates questions and answers."""
 
     def __init__(self, question, correct_answer):
         """Initialize question attributes."""
@@ -48,7 +50,7 @@ class Question(object):
 
 
 class Exam(object):
-    """Creates the exam with a list of questions"""
+    """Creates an exam with a list of questions."""
 
     def __init__(self, name):
         """Initialize exam attributes."""
@@ -57,13 +59,13 @@ class Exam(object):
         self.questions = []
 
     def add_question(self, question, correct_answer):
-        """Adds question and answer instances to the list of questions"""
+        """Adds question and answer instances to the list of questions."""
 
-        self.question = Question(question, correct_answer)
-        self.questions.append(self.question)
+        new_question = Question(question, correct_answer)
+        self.questions.append(new_question)
 
     def administer(self):
-        """administer the exam and return a score displayed as a percent"""
+        """administer the exam and return a score displayed as a percent."""
 
         self.score = 0
 
@@ -74,6 +76,47 @@ class Exam(object):
         self.score_percent = self.score / len(self.questions) * 100
         return self.score_percent
 
+###############################################################################
+# Part 5
+
+
+class Quiz(Exam):
+    "Creates a quiz with a list of questions."
+
+    def administer(self):
+        super(Quiz, self).administer()
+        return self.score_percent >= 50
+
+###############################################################################
+# Part 4
+
+
+def take_test(exam, student):
+    """Administer the exam to a student and prints the score."""
+
+    exam.administer()
+    print "Your score is {}%".format(exam.score_percent)
+
+
+def example():
+    """Creates and exam, adds questions, and creates a student that takes the
+    exam.
+    """
+
+    exam = Exam("midterm")
+
+    # exam.add_question("Who is the best captain?", "Jean-Luc Picard")
+    # exam.add_question("First step when there is something wrong with the ship",
+                      # "Run a level 2 diagnostic")
+
+    exam.add_question("1 + 1", "2")
+    exam.add_question("1 + 2", "3")
+    exam.add_question("1 + 3", "4")
+    exam.add_question("1 + 4", "5")
+
+    student = Student("Will", "Riker", "1701-D Enterprise")
+
+    take_test(exam, student)
 
 
 
