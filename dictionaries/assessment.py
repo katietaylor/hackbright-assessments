@@ -210,7 +210,8 @@ def kids_game(names):
 
     for name in names:
         last_letter = name[-1]
-        next_names = [next_name for next_name in names if next_name[0] == last_letter]
+        next_names = [this_name for this_name in names
+                      if this_name[0] == last_letter]
         name_sequences[name] = next_names
 
     next_name = names[0]

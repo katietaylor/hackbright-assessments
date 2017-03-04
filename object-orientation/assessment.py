@@ -19,5 +19,13 @@ Part 1: Discussion
 """
 
 
-# Parts 2 through 5:
-# Create your classes and class methods
+class Student(object):
+    pass
+
+
+class Question(object):
+    pass
+
+
+class Exam(object):
+    pass
