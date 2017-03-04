@@ -92,16 +92,9 @@ def word_length_sorted(words):
 
     for word in words:
         length = len(word)
-        word_lengths[length] = word_lengths.get(length, []) + [word]
+        word_lengths[length] = sorted(word_lengths.get(length, []) + [word])
 
-    # word_lengths = sorted(word_lengths.items())
-    # for tup in word_lengths:
-    #     tup[1].sort()
-
-    word_lengths = [(length, sorted(words)) for (length, words) in
-                    sorted(word_lengths.items())]
-
-    return word_lengths
+    return sorted(word_lengths.items())
 
 
 def translate_to_pirate_talk(phrase):
@@ -213,7 +206,30 @@ def kids_game(names):
     good solutions here will definitely require a dictionary.
     """
 
-    return []
+    name_sequences = {}
+
+    for name in names:
+        last_letter = name[-1]
+        next_names = [next_name for next_name in names if next_name[0] == last_letter]
+        name_sequences[name] = next_names
+
+    next_name = names[0]
+    results = [next_name]
+
+    while True:
+        for name in name_sequences:
+            try:
+                name_sequences[name].remove(next_name)
+            except ValueError:
+                continue
+        try:
+            next_name = name_sequences[next_name][0]
+        except IndexError:
+            break
+
+        results.append(next_name)
+
+    return results
 
 #####################################################################
 # You can ignore everything below this.
