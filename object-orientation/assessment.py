@@ -80,7 +80,7 @@ class Question(object):
         print self.question
         self.user_answer = raw_input("> ")
 
-        # Checks is answer is correct and returns True of False
+        # Check if answer is correct and returns True of False
         return self.correct_answer.lower() == self.user_answer.lower()
 
 
@@ -106,17 +106,16 @@ class Exam(object):
 
         self.score = 0
 
-        # Ask each question in the list
+        # Ask each question and add 1 to score if correct
         for question in self.questions:
-            # Add 1 to the score if answered correctly
             if question.ask_and_evaluate() is True:
                 self.score += 1.0
 
+        # Calculate the percent of answers that were correct
         try:
-            # Calculate the percent of answers that were correct
             self.score_percent = self.score / len(self.questions) * 100
 
-        # Handles error when trying to administer exam before adding questions.
+        # Handle error when trying to administer exam before adding questions.
         except ZeroDivisionError:
             self.score_percent = None
             print "{} can't be administered without questions.".format(
@@ -152,15 +151,15 @@ def example():
     exam.
     """
 
-    # Instantiates an Exam instance.
+    # Instantiate an Exam instance.
     exam = Exam("ST TNG")
 
-    # Adds 3 exam questions.
+    # Add 3 exam questions.
     exam.add_question("Who is the best captain?", "Jean-Luc Picard")
     exam.add_question("What is Data's cat's name?", "Spot")
     exam.add_question("What species is Q?", "Q")
 
-    # Instantiates a Student instance.
+    # Instantiate a Student instance.
     student = Student("Will", "Riker", "1701-D Enterprise")
 
     take_test(exam, student)
