@@ -43,9 +43,12 @@ Part 1: Discussion
    you can change the attribute, which will make it an instance attribute.
 
    You should use a class attribute for data that will be the same for all
-   instances of a class, at least when it is first initalized. For example,
-   a Cat class might have a class attribute species = "cat". An example of an
-   instance attribute for a Cat class could be name or favorite_napping_spot.
+   instances of a class, at least when it is first initalized.
+
+   For example, the class Burrito could have a class attribute, has_tortilla
+   set to True. Another class BurritoBowl which inherits from Burrito would
+   set the has_tortilla class attribute to False. An instance attribute could
+   be type_of_meat or has_guacamole.
 
 """
 
@@ -72,7 +75,7 @@ class Question(object):
         self.correct_answer = correct_answer
 
     def ask_and_evaluate(self):
-        """ ."""
+        """Ask question and compares user's answer to the correct answer."""
 
         print self.question
         self.user_answer = raw_input("> ")
@@ -105,7 +108,6 @@ class Exam(object):
 
         # Ask each question in the list
         for question in self.questions:
-
             # Add 1 to the score if answered correctly
             if question.ask_and_evaluate() is True:
                 self.score += 1.0
@@ -117,7 +119,8 @@ class Exam(object):
         # Handles error when trying to administer exam before adding questions.
         except ZeroDivisionError:
             self.score_percent = None
-            print "{} can't be administered without questions.".format(self.name)
+            print "{} can't be administered without questions.".format(
+                self.name)
 
         return self.score_percent
 
@@ -130,6 +133,7 @@ class Quiz(Exam):
 
     def administer(self):
         super(Quiz, self).administer()
+
         return self.score_percent >= 50
 
 ###############################################################################
@@ -144,12 +148,12 @@ def take_test(exam, student):
 
 
 def example():
-    """Creates and exam, adds questions, and creates a student that takes the
+    """Creates an exam, adds questions, and creates a student that takes the
     exam.
     """
 
     # Instantiates an Exam instance.
-    exam = Exam("midterm")
+    exam = Exam("ST TNG")
 
     # Adds 3 exam questions.
     exam.add_question("Who is the best captain?", "Jean-Luc Picard")
