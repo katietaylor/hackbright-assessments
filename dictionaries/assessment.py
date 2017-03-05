@@ -156,9 +156,9 @@ def translate_to_pirate_talk(phrase):
 
     pirate_translation = []
 
+    # Add word in pirate to the translation if available.
+    # If there is no pirate word, add the english word.
     for english_word in phrase.split(" "):
-        # Adds the word in pirate to the list if there is a translation.
-        # If there is no translation, adds the english word.
         pirate_translation.append(
             english_to_prirate.get(english_word, english_word))
 
@@ -221,8 +221,8 @@ def kids_game(names):
         next_names = [next_name for next_name in names
                       if next_name[0] == last_letter]
 
-        # Add every name to the dictionary as a key
-        # Set value as the list of names that could follow the key name.
+        # Add every name to the dictionary as a key.
+        # Add list of next_names as the value.
         name_sequences[name] = next_names
 
     # Initialize the variable next_name to first word of the list.
@@ -230,19 +230,16 @@ def kids_game(names):
     results = [next_name]
 
     while True:
-        # Iterate over the dictionary
+        # Remove the current name from all of the next_name lists
         for name in name_sequences:
-            # Remove next_name from the next_names values in the dict
             try:
                 name_sequences[name].remove(next_name)
-            # If next_name isn't in the list, keep looping until finished
             except ValueError:
                 continue
 
-        # Lookup the new next_name and redifen the variable
+        # Lookup the new next_name and break if none is available
         try:
-            next_name = name_sequences[next_name][0]
-        # If there are no next_names in the list, break out of while loop
+            next_name = name_sequences[next_name][0] 
         except IndexError:
             break
 
