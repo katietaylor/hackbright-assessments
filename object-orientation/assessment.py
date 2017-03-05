@@ -77,6 +77,7 @@ class Question(object):
         print self.question
         self.user_answer = raw_input("> ")
 
+        # Checks is answer is correct and returns True of False
         return self.correct_answer.lower() == self.user_answer.lower()
 
 
@@ -90,22 +91,30 @@ class Exam(object):
         self.questions = []
 
     def add_question(self, question, correct_answer):
-        """Adds question and answer instances to the list of questions."""
+        """Instantiates a Question instance and adds it to the list of
+        questions.
+        """
 
         new_question = Question(question, correct_answer)
         self.questions.append(new_question)
 
     def administer(self):
-        """administer the exam and return a score displayed as a percent."""
+        """Administer the exam and return a score displayed as a percent."""
 
         self.score = 0
 
+        # Ask each question in the list
         for question in self.questions:
+
+            # Add 1 to the score if answered correctly
             if question.ask_and_evaluate() is True:
                 self.score += 1.0
 
         try:
+            # Calculate the percent of answers that were correct
             self.score_percent = self.score / len(self.questions) * 100
+
+        # Handles error when trying to administer exam before adding questions.
         except ZeroDivisionError:
             self.score_percent = None
             print "{} can't be administered without questions.".format(self.name)
@@ -139,17 +148,15 @@ def example():
     exam.
     """
 
+    # Instantiates an Exam instance.
     exam = Exam("midterm")
 
-    # exam.add_question("Who is the best captain?", "Jean-Luc Picard")
-    # exam.add_question("First step when there is something wrong with the ship",
-                      # "Run a level 2 diagnostic")
+    # Adds 3 exam questions.
+    exam.add_question("Who is the best captain?", "Jean-Luc Picard")
+    exam.add_question("What is Data's cat's name?", "Spot")
+    exam.add_question("What species is Q?", "Q")
 
-    exam.add_question("1 + 1", "2")
-    exam.add_question("1 + 2", "3")
-    exam.add_question("1 + 3", "4")
-    exam.add_question("1 + 4", "5")
-
+    # Instantiates a Student instance.
     student = Student("Will", "Riker", "1701-D Enterprise")
 
     take_test(exam, student)
