@@ -60,13 +60,13 @@ def get_melon_price(melon_name):
         'No price found'
     """
 
-    melons = {"Watermelon": 2.95,
-              "Cantaloupe": 2.50,
-              "Musk": 3.25,
-              "Christmas": 14.25,
+    melons = {"watermelon": 2.95,
+              "cantaloupe": 2.50,
+              "musk": 3.25,
+              "christmas": 14.25,
               }
 
-    return melons.get(melon_name, "No price found")
+    return melons.get(melon_name.lower(), "No price found")
 
 
 def word_length_sorted(words):
@@ -92,10 +92,8 @@ def word_length_sorted(words):
 
     for word in words:
         length = len(word)
-
-        # Add each length to the dict as a key and give it [] as a value
-        # Add each word with that length to the list
-        # Sort the list so words are alphabetical
+        # Add each length to the dict as a key with [] as a value
+        # Add each word with that length to the list and sort the list
         word_lengths[length] = sorted(word_lengths.get(length, []) + [word])
 
     # Returns a list of tuples and sorts the list
@@ -159,11 +157,10 @@ def translate_to_pirate_talk(phrase):
     pirate_translation = []
 
     for english_word in phrase.split(" "):
-
         # Adds the word in pirate to the list if there is a translation.
         # If there is no translation, adds the english word.
-        pirate_translation.append(english_to_prirate.get(english_word,
-                                  english_word))
+        pirate_translation.append(
+            english_to_prirate.get(english_word, english_word))
 
     # Returns the pirate translation as a string
     return " ".join(pirate_translation)
@@ -220,32 +217,32 @@ def kids_game(names):
     for name in names:
         last_letter = name[-1]
 
-        # Creates a list of every name that could follow the current name.
-        next_names = [connected_name for connected_name in names
-                      if connected_name[0] == last_letter]
+        # Create a list of every name that could follow the current name.
+        next_names = [next_name for next_name in names
+                      if next_name[0] == last_letter]
 
-        # Adds every name to the dictionary as a key
-        # Sets value as the list of names that could follow the name in the key.
+        # Add every name to the dictionary as a key
+        # Set value as the list of names that could follow the key name.
         name_sequences[name] = next_names
 
-    # Initializes the variable next_name to start at the beginning of the list.
+    # Initialize the variable next_name to first word of the list.
     next_name = names[0]
     results = [next_name]
 
     while True:
-        # Iterates over the dictionary
+        # Iterate over the dictionary
         for name in name_sequences:
-            # Removes next_name from the list values in the dict
+            # Remove next_name from the next_names values in the dict
             try:
                 name_sequences[name].remove(next_name)
-            # If there next_name isn't in the list, keep looping until finished
+            # If next_name isn't in the list, keep looping until finished
             except ValueError:
                 continue
 
-        # Redefine next_name to be the first name in the value list
+        # Lookup the new next_name and redifen the variable
         try:
             next_name = name_sequences[next_name][0]
-        # If there are no names in the list, breaks out of while loop
+        # If there are no next_names in the list, break out of while loop
         except IndexError:
             break
 
