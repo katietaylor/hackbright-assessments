@@ -5,19 +5,27 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Apply for a Job at Ubermelon</h1>
-    <p class="instructions">Please fill out all of the fields below and then submit.</p>
-    <form>
-        First Name: <input type="text" name="firstname" class="yellow-field"><br>
-        Last Name: <input type="text" name="lastname" class="yellow-field bold-field"><br>
-        Salary Requirement: <input type="number" name="salary" class="yellow-field"><br>
-        Job Position you are Applying for: <select class="yellow-field">
-            <option selected="selected" disabled="disabled">Select a Position</option>
-            <option value="softwareengineer">Software Engineer</option>
-            <option value="qaengineer">QA Engineer</option>
-            <option value="productmanager">Product Manager</option><br>
-        </select><br>
-        <input type="submit" class="yellow-field">
-    </form>
+  <h1>Apply for a Job at Ubermelon</h1>
+  <p class="instructions">Please fill out all of the fields below and then submit.
+    All of the fields are <b>required</b>.</p>
+  <form action="/application-success" method="POST">
+      First Name: <br>
+      <input type="text" name="first_name" class="yellow-field" required><br><br>
+      
+      Last Name: <br>
+      <input type="text" name="last_name" class="yellow-field bold-field" required><br><br>
+      
+      Minimum Salary Requirement (US dollars): <br>
+      <input type="number" name="salary" class="yellow-field" step="0.01" required><br><br>
+      
+      Job Title you are Applying for: <br>
+      <select name="job_title" class="yellow-field" required>
+      <option selected="selected" disabled="disabled">Select a Title</option>
+      <option value="softwareengineer">Software Engineer</option>
+      <option value="qaengineer">QA Engineer</option>
+      <option value="productmanager">Product Manager</option><br>
+    </select><br><br>
+    <input type="submit" class="yellow-field">
+  </form>
 </body>
 </html>

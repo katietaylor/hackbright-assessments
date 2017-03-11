@@ -25,6 +25,26 @@ def application_form():
     return render_template("application-form.html", job_positions=job_positions)
 
 
+@app.route("/application-success", methods=['POST'])
+def application_success():
+    """Show the application response."""
+
+    first_name = request.form["first_name"]
+    last_name = request.form["last_name"]
+    job_title = request.form["job_title"]
+
+    # add commas to the 1000's place and display 2 decimals places if needed.
+    salary = request.form["salary"]
+    if "." in salary:
+        salary = "{:,.2f}".format(float(salary))
+    else:
+        salary = "{:,}".format(int(salary))
+
+    return render_template("/application-response.html", first_name=first_name,
+                           last_name=last_name, salary=salary,
+                           job_title=job_title)
+
+
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the
     # point that we invoke the DebugToolbarExtension
