@@ -6,18 +6,17 @@
 </head>
 <body>
   <h1>Apply for a Job at Ubermelon</h1>
+  
   <p class="instructions">Please fill out all of the fields below and then submit.
     All of the fields are <b>required</b>.</p>
+  
   <form action="/application-success" method="POST">
       First Name: <br>
       <input type="text" name="first_name" class="yellow-field" required><br><br>
-      
       Last Name: <br>
       <input type="text" name="last_name" class="yellow-field bold-field" required><br><br>
-      
       Minimum Salary Requirement (US dollars): <br>
       <input type="number" name="salary" class="yellow-field" step="0.01" required><br><br>
-      
       Job Title you are Applying for: <br>
       <select name="job_title" class="yellow-field" required>
       <option selected="selected" disabled="disabled">Select a Title</option>
@@ -27,5 +26,6 @@
     </select><br><br>
     <input type="submit" class="yellow-field">
   </form>
+
 </body>
 </html>

@@ -22,7 +22,7 @@ def application_form():
 
     job_positions = ["Software Engineer", "QA Engineer", "Product Manager"]
 
-    return render_template("application-form.html", job_positions=job_positions)
+    return render_template("application-form.html", job_titles=job_positions)
 
 
 @app.route("/application-success", methods=['POST'])
