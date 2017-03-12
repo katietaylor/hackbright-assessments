@@ -32,9 +32,9 @@ def application_success():
     first_name = request.form["first_name"]
     last_name = request.form["last_name"]
     job_title = request.form["job_title"]
-
-    # add commas to the 1000's place and display 2 decimals places if needed.
     salary = request.form["salary"]
+
+    # add commas to the 1000s place and display 2 decimals places if needed.
     if "." in salary:
         salary = "{:,.2f}".format(float(salary))
     else:

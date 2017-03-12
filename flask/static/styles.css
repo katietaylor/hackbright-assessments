@@ -19,3 +19,9 @@
     text-transform: uppercase;
     background: red; 
 }
+
+h1 {
+    background-color: green;
+    padding: 10px;
+    color: white;
+}
