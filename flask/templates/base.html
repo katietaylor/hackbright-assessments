@@ -1,0 +1,11 @@
+<!doctype html>
+<html>
+<head>
+  <title>{% block title %}Title Goes Here{% endblock %}</title>
+  <link href="/static/styles.css" rel="stylesheet">
+</head>
+<body>
+  <h1>{% block heading %}Page Heading goes here{% endblock %}</h1>
+  {% block content %}Content Goes Here{% endblock %}
+</body>
+</html>

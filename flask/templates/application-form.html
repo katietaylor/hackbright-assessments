@@ -1,11 +1,9 @@
-<!doctype html>
-<html>
-<head>
-  <title>Application Form</title>
-  <link href="/static/styles.css" rel="stylesheet">
-</head>
-<body>
-  <h1>Apply for a Job at Ubermelon</h1>
+{% extends 'base.html' %}
+{% block title %}Home Page{% endblock %}
+
+{% block heading %}Apply for a Job at Ubermelon{% endblock %}
+
+{% block content %}
   <p class="instructions">Please fill out all of the fields below and then submit.
     All of the fields are <b>required</b>.</p>
   <form action="/application-success" method="POST">
@@ -28,5 +26,4 @@
 
       <input type="submit" class="yellow-field">
   </form>
-</body>
-</html>
+{% endblock %}
