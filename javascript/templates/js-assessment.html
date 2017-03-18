@@ -38,15 +38,14 @@
 
 <script>
   "use strict";
-  
-  var message = document.getElementById("message-to-change")
-  var button = document.getElementById("change-hello-to-goodbye-button")
+  var message = document.getElementById("message-to-change");
+  var button = document.getElementById("change-hello-to-goodbye-button");
 
   function changeWord(evt) {
     message.innerHTML = "goodbye"  
   }
 
-  button.addEventListener("click", changeWord)
+  button.addEventListener("click", changeWord);
 
 </script>
 
@@ -75,7 +74,14 @@
 
 <script>
   "use strict";
-  // code here for above problem
+  var form = document.getElementById("prevent-form-submission-form");
+
+  function preventFormSubmission(evt) {
+    alert("The form doesn't feel like being submitted right now.");
+    evt.preventDefault();
+  }
+
+  form.addEventListener("submit", preventFormSubmission)
 </script>
 
 <div class="hint">
