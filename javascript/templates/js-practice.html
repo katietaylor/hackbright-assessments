@@ -36,7 +36,15 @@
 
 <script>
   "use strict";
-  // code here for above problem
+  
+  var button = document.getElementById("popup-alert-button")
+
+  function popupAlert(evt) {
+    alert("This is a popup!");
+  }
+
+button.addEventListener('click', popupAlert)
+
 </script>
 
 
@@ -79,7 +87,6 @@
   "use strict";
 
   // code here for the above problem
-
 </script>
 
 <div class="hint">
