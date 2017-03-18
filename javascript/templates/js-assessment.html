@@ -5,6 +5,7 @@
   <title>Skills JavaScript</title>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="static/styles.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 <body class="container">
 
@@ -147,7 +148,14 @@
 
 <script>
   "use strict";
-  // put your code here
+
+  function dogConquersCats(env) {
+  $("#kittenz-rule").attr("src",
+    "https://www.cdc.gov/features/dog-bite-prevention/dog-bite-prevention_456px.jpg");
+  }
+
+  $("#kittenz-rule").on("dblclick", dogConquersCats);
+
 </script>
 
 <div class="hint">
