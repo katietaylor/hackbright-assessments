@@ -186,7 +186,48 @@
 
 <script>
   "use strict";
-  // put your code here
+
+  var number;
+
+  function playGuessingGame(evt) {
+
+    $("#play-guessing-game").prop("disabled", true);
+    $("#number-guessed").prop("disabled", false);
+    $("#try-this-number").prop("disabled", false);
+
+    number = Math.floor(Math.random() * 100);
+    console.log(number);
+
+    $("#number-guessing-msg").html("Guess a number between 1 to 100");
+  }
+
+  
+  function guessNumber(evt) {
+    evt.preventDefault();
+    var inputField = $("#number-guessed");
+    var guess = inputField.val();
+    var msg = $("#number-guessing-msg")
+
+    if (guess < number) {
+      msg.html(guess + " is too low.");
+      inputField.val("")
+    } else if (guess > number) {
+      msg.html(guess + " is too high.");
+      inputField.val("")
+    } else {
+      msg.html(guess + " is correct. Congratulations!");
+      inputField.val("")
+      
+      $("#play-guessing-game").prop("disabled", false);
+      $("#number-guessed").prop("disabled", true);
+      $("#try-this-number").prop("disabled", true);
+    }
+  }
+
+  $("#play-guessing-game").on("click", playGuessingGame)
+  $("#guessing-game-form").on("submit", guessNumber)
+
+
 </script>
 
 
