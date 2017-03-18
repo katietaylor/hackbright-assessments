@@ -38,7 +38,16 @@
 
 <script>
   "use strict";
-  // code here for above-problem
+  
+  var message = document.getElementById("message-to-change")
+  var button = document.getElementById("change-hello-to-goodbye-button")
+
+  function changeWord(evt) {
+    message.innerHTML = "goodbye"  
+  }
+
+  button.addEventListener("click", changeWord)
+
 </script>
 
 <div class="hint">
