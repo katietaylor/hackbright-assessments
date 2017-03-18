@@ -217,7 +217,7 @@
     } else {
       msg.html(guess + " is correct. Congratulations!");
       inputField.val("")
-      
+
       $("#play-guessing-game").prop("disabled", false);
       $("#number-guessed").prop("disabled", true);
       $("#try-this-number").prop("disabled", true);
@@ -294,6 +294,14 @@
   }
 
   // put your code here
+  $("#t-rex-form").on("submit", beginTRexAttack);
+
+  function beginTRexAttack(evt) {
+    evt.preventDefault();
+    var tRexTarget = $("#t-rex-form").serialize();
+    $.post('/t-rex-attack.json', tRexTarget, showTRexResults);
+  }
+
 
 </script>
 
