@@ -39,13 +39,13 @@
 
 <script>
   "use strict";
-  var message = document.getElementById("message-to-change");
-  var button = document.getElementById("change-hello-to-goodbye-button");
 
   function changeWord(evt) {
+    var message = document.getElementById("message-to-change");
     message.innerHTML = "goodbye"  
   }
 
+  var button = document.getElementById("change-hello-to-goodbye-button");
   button.addEventListener("click", changeWord);
 
 </script>
@@ -75,14 +75,17 @@
 
 <script>
   "use strict";
-  var form = document.getElementById("prevent-form-submission-form");
 
   function preventFormSubmission(evt) {
+    //Prevents form submission and replaces with a popup.
+    evt.preventDefault();    
     alert("The form doesn't feel like being submitted right now.");
-    evt.preventDefault();
   }
 
+  var form = document.getElementById("prevent-form-submission-form");
   form.addEventListener("submit", preventFormSubmission)
+
+
 </script>
 
 <div class="hint">
@@ -107,9 +110,10 @@
 
   function reverseString() {
     var msg = "Porcupines are cute";
-    var newMsg = "";
+    var newMsg = ""
 
-    for (var i=msg.length - 1; i >= 0; i -= 1) {
+    //iterates backwards through the msg
+    for (var i = (msg.length - 1); i >= 0; i -= 1) {
       newMsg += msg[i];
     }
     alert(newMsg);
@@ -149,12 +153,13 @@
 <script>
   "use strict";
 
-  function dogConquersCats(env) {
-  $("#kittenz-rule").attr("src",
-    "https://www.cdc.gov/features/dog-bite-prevention/dog-bite-prevention_456px.jpg");
+  function dogConquersCat(env) {
+    //Change cat picture to a dog picture
+    $("#kittenz-rule").attr("src",
+      "https://www.cdc.gov/features/dog-bite-prevention/dog-bite-prevention_456px.jpg");
   }
 
-  $("#kittenz-rule").on("dblclick", dogConquersCats);
+  $("#kittenz-rule").on("dblclick", dogConquersCat);
 
 </script>
 
@@ -189,25 +194,29 @@
 
   var number;
 
-  function playGuessingGame(evt) {
+  function startGuessingGame(evt) {
 
+    //Disable play button and enable form fields
     $("#play-guessing-game").prop("disabled", true);
     $("#number-guessed").prop("disabled", false);
     $("#try-this-number").prop("disabled", false);
 
+    //number between 1 and 100
     number = Math.floor(Math.random() * 100);
-    console.log(number);
 
-    $("#number-guessing-msg").html("Guess a number between 1 to 100");
+    //prompt user to guess
+    $("#number-guessing-msg").html("Guess a number between 1 and 100");
   }
 
   
   function guessNumber(evt) {
+    
     evt.preventDefault();
     var inputField = $("#number-guessed");
     var guess = inputField.val();
     var msg = $("#number-guessing-msg")
 
+    //Check the guess against the number and give feedback to user. Clears guess after each turn.
     if (guess < number) {
       msg.html(guess + " is too low.");
       inputField.val("")
@@ -218,15 +227,15 @@
       msg.html(guess + " is correct. Congratulations!");
       inputField.val("")
 
+      //Disables form and renables play button
       $("#play-guessing-game").prop("disabled", false);
       $("#number-guessed").prop("disabled", true);
       $("#try-this-number").prop("disabled", true);
     }
   }
 
-  $("#play-guessing-game").on("click", playGuessingGame)
+  $("#play-guessing-game").on("click", startGuessingGame)
   $("#guessing-game-form").on("submit", guessNumber)
-
 
 </script>
 
@@ -297,7 +306,9 @@
   $("#t-rex-form").on("submit", beginTRexAttack);
 
   function beginTRexAttack(evt) {
+
     evt.preventDefault();
+    //turn form in JSON and post to url
     var tRexTarget = $("#t-rex-form").serialize();
     $.post('/t-rex-attack.json', tRexTarget, showTRexResults);
   }
