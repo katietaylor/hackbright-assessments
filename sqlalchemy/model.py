@@ -13,7 +13,7 @@ db = SQLAlchemy()
 # Part 1: Compose ORM
 
 class Brand(db.Model):
-    """Car brand."""
+    """Car brand. A brand has many models."""
 
     __tablename__ = "brands"
 
@@ -23,12 +23,14 @@ class Brand(db.Model):
     headquarters = db.Column(db.String(50), nullable=True)
     discontinued = db.Column(db.Integer, nullable=True)
 
+    models = db.relationship('Model')
+
     def __repr__(self):
-        return "<Brand id=%d, Name=%s>" % (self.brand_id, self.name)
+        return "<Brand id=%s, Name=%s>" % (self.brand_id, self.name)
 
 
 class Model(db.Model):
-    """Car model."""
+    """Car model. A model has one brand."""
 
     __tablename__ = "models"
 
@@ -38,10 +40,12 @@ class Model(db.Model):
                          nullable=False)
     name = db.Column(db.String(50), nullable=False)
 
+    brand = db.relationship('Brand')
+
     def __repr__(self):
-        return "<Model id=%d, Name=%s, Brand id =%s>" % (self.model_id,
+        return "<Model id=%s, Name=%s, Brand id =%s>" % (self.model_id,
                                                          self.name,
-                                                         self.model_id)
+                                                         self.brand_id)
 
 # End Part 1
 

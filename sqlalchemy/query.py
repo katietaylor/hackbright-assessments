@@ -23,11 +23,16 @@ init_app()
 # 1. What is the datatype of the returned value of
 # ``Brand.query.filter_by(name='Ford')``?
 
-
+# The query hasn't run yet, this is just the query itself.
+# EXPAND ON THIS
 
 # 2. In your own words, what is an association table, and what type of
 # relationship (many to one, many to many, one to one, etc.) does an
 # association table manage?
+
+# Many to one
+# Has a primary key and 2 foreign keys
+# Exists to handle the "many to many" scenario
 
 
 
