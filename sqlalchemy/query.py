@@ -67,7 +67,6 @@ q7 = Brand.query.filter((db.not_(Brand.discontinued.is_(None))) |
 q8 = Model.query.filter(db.not_(Model.brand_id == 'for')).all()
 
 
-
 # -------------------------------------------------------------------
 # Part 4: Write Functions
 
@@ -76,7 +75,12 @@ def get_model_info(year):
     """Takes in a year and prints out each model name, brand name, and brand
     headquarters for that year using only ONE database query."""
 
-    pass
+    models = Model.query.filter_by(year=year).all()
+
+    for model in models:
+        print "Model: {}, Brand: {}, Headquarters: {}".format(model.name,
+                                                              model.brand.name,
+                                                              model.brand.headquarters)
 
 
 def get_brands_summary():
