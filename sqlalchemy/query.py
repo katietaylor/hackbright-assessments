@@ -87,19 +87,37 @@ def get_brands_summary():
     """Prints out each brand name (once) and all of that brand's models,
     including their year, using only ONE database query."""
 
-    pass
+    brands = Brand.query.all()
+
+    for brand in brands:
+        print brand.name
+        for model in brand.models:
+            print "\t{} {}".format(model.name, model.year)
+
+
+    # brands = db.session.query(Brand.name, Model.name, Model.year).join(Model).all()
+    # brands_dic = {}
+    # for brand in brands:
+    #     brands_dic[brand[0]] = brands_dic.get(brand[0], []) + [(brand[1], brand[2])]
+
+    # for brand in brands_dic:
+    #     print brand
+    #     for model in brands_dic[brand]:
+    #         print "\t{} {}".format(model[0], model[1])
 
 
 def search_brands_by_name(mystr):
     """Returns all Brand objects corresponding to brands whose names include
     the given string."""
 
-    pass
+    search_string = "%" + mystr + "%"
+
+    return Brand.query.filter(Brand.name.like(search_string)).all()
 
 
 def get_models_between(start_year, end_year):
     """Returns all Model objects corresponding to models made between
     start_year (inclusive) and end_year (exclusive)."""
 
-    pass
-
+    return Model.query.filter(Model.year >= start_year,
+                              Model.year < end_year).all()

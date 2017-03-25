@@ -44,9 +44,10 @@ class Model(db.Model):
     brand = db.relationship('Brand')
 
     def __repr__(self):
-        return "<Model id=%s, Name=%s, Brand id =%s>" % (self.model_id,
-                                                         self.name,
-                                                         self.brand_id)
+        return "<Model: %s %s, M_id=%s, B_id =%s>" % (self.name,
+                                                      self.year,
+                                                      self.model_id,
+                                                      self.brand_id)
 
 # End Part 1
 
