@@ -23,17 +23,19 @@ init_app()
 # 1. What is the datatype of the returned value of
 # ``Brand.query.filter_by(name='Ford')``?
 
-# The query hasn't run yet, this is just the query itself.
-# EXPAND ON THIS
+# This is a query object. It is the query itself before it has been run, as
+# oppposed to the results of the query that you would get if you add .one() to
+# the value.
 
 # 2. In your own words, what is an association table, and what type of
 # relationship (many to one, many to many, one to one, etc.) does an
 # association table manage?
 
-# Many to one
-# Has a primary key and 2 foreign keys
-# Exists to handle the "many to many" scenario
-
+# An association table exists to create a relationship between 2 tables that
+# have a many to many relationship. The association table has a many to one
+# relationship with both tables, creating a bridge between the 2. The table
+# consists of just a primary key and the 2 foreign keys (one from each of the
+# 2 table it is bridging).
 
 # -------------------------------------------------------------------
 # Part 3: SQLAlchemy Queries
@@ -93,7 +95,7 @@ def get_brands_summary():
     for brand in brands:
         print brand.name
         for model in brand.models:
-            print "\t{} {}".format(model.name, model.year)
+            print "\t{} ({})".format(model.name, model.year)
 
 
 def search_brands_by_name(mystr):
