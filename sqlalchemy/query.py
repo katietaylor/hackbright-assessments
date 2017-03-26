@@ -77,8 +77,8 @@ def get_model_info(year):
     """Takes in a year and prints out each model name, brand name, and brand
     headquarters for that year using only ONE database query."""
 
-    models = db.session.query(Model.name, Brand.name, Brand.headquarters).join(
-        Brand).all()
+    models = db.session.query(Model.name, Brand.name, Brand.headquarters) \
+        .filter_by(year=year).join(Brand).all()
 
     for model in models:
         print "Model: {}, Brand: {}, Headquarters: {}".format(model[0],
@@ -90,10 +90,13 @@ def get_brands_summary():
     """Prints out each brand name (once) and all of that brand's models,
     including their year, using only ONE database query."""
 
+    # loads all models results up front to avoid multiple queries
     brands = Brand.query.options(db.joinedload('models')).all()
 
+    # prints each brand once
     for brand in brands:
         print brand.name
+        # prints each model indented under the brand
         for model in brand.models:
             print "\t{} ({})".format(model.name, model.year)
 
