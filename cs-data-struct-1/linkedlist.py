@@ -77,6 +77,7 @@ class LinkedList(object):
         """
 
         current = self.head
+
         while current:
             print current.data
             current = current.next
@@ -101,9 +102,16 @@ class LinkedList(object):
             Exception: List not long enough
         """
 
-        # FIXME
+        current = self.head
 
-        pass
+        for i in range(idx):
+            try:
+                current = current.next
+            except AttributeError:
+                raise Exception("List not long enough")
+
+        return current
+
 
 if __name__ == "__main__":
     import doctest
