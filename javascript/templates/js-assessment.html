@@ -110,7 +110,7 @@
 
   function reverseString() {
     var msg = "Porcupines are cute";
-    var newMsg = ""
+    var newMsg = "";
 
     //iterates backwards through the msg
     for (var i = (msg.length - 1); i >= 0; i -= 1) {
@@ -219,13 +219,13 @@
     //Check the guess against the number and give feedback to user. Clears guess after each turn.
     if (guess < number) {
       msg.html(guess + " is too low.");
-      inputField.val("")
+      inputField.val("");
     } else if (guess > number) {
       msg.html(guess + " is too high.");
-      inputField.val("")
+      inputField.val("");
     } else {
       msg.html(guess + " is correct. Congratulations!");
-      inputField.val("")
+      inputField.val("");
 
       //Disables form and renables play button
       $("#play-guessing-game").prop("disabled", false);
@@ -234,8 +234,8 @@
     }
   }
 
-  $("#play-guessing-game").on("click", startGuessingGame)
-  $("#guessing-game-form").on("submit", guessNumber)
+  $("#play-guessing-game").on("click", startGuessingGame);
+  $("#guessing-game-form").on("submit", guessNumber);
 
 </script>
 
