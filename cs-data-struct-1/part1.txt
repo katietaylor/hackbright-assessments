@@ -1,0 +1,84 @@
+###############################################################################
+Runtime
+
+1.  The number of animal crakers inside of the box determines the workload.
+    This would be O(n) where n = number of animal crackers.
+
+2.  O(1)
+    O(log n)
+    O(n)
+    O(n log n)
+    O(n^2)
+    O(2^n)
+
+###############################################################################
+Stacks and Queues
+
+1.  Would a stack or queue be a more appropriate data structure?
+    1.1 Stack
+    1.2 Queue
+    1.3 Neither is a great structure to use, since order of operations
+        doesn't follow a front to back or back to front pattern. However, you
+        could include a Queue structure in the algorithm that first broke things
+        up by their oder of operations (PEMDAS) and then started from the beginning
+        and worked to the end of the problem per each operation group. A stack
+        definitely wouldn't work because you would not want to implement
+        2 / 3 instead of 3 / 2.
+
+
+2.  Queue examples
+    2.1 Orders may use a queue because you want to process the orders in the
+        order that they came in.
+
+    2.2 
+
+3.  Stack examples
+    3.1
+
+    3.2
+
+###############################################################################
+Linked Lists
+
+1.  Nodes = The boxes that contain "Apple", "Berry", and "Cherry"
+    Data for node = The data is what is inside the node boxes. In this situation,
+        the data is "Apple", "Berry", and "Cherry"
+    Head = The head is the node that the head box's arrow is pointing to. In this
+        example, it is the Apple node.
+    Tail = This linked list has no defined tail. If you wanted to have a tail,
+        then in this example, you would point the tail arrow to the cherry node.
+
+2.  Linked lists have arrows pointing to the next node. Doubly linked lists have
+    arrows pointing to both the next node and the previous node. This makes it
+    faster to step backwards through the list.
+
+3.  Without a tail, you have to traverse the whole linked list to find the node
+    that has a next value of None. Then you can append the new node there. If you
+    don't have to travers the list and can instead jump directly to the tail node,
+    append the new node to the tail, and then reassign the tail to the new node. 
+    This reduces runtime complexity of O(n) to O(1).
+
+###############################################################################
+Trees
+
+1.  food, Italian, Indian, Mexican, lasagna, tikka masala, saag, burritos
+
+2.  Assuming the algorithm used in tree.py, which searches the right side of the
+    tree before the left side of the tree:
+    food, 
+    Mexican, enchilada, tacos, burritos, 
+    Indian, saag tikka masala,
+    Italian, pizza, Sicilian, New York-style, Chicago-style
+
+3.  In a binary search tree, every parent  can have at most 2 children (lef and
+    right) and the children have a sense of order. A common rule for arranging 
+    the children is that the left child is less than the right child. This makes searching a binary tree faster since you can cut the search in half each
+    time ( O(log n) ), assuming the binary tree is well balanced.
+
+
+
+
+
+
+
+
