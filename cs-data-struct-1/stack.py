@@ -95,9 +95,7 @@ class Stack(object):
             0
         """
 
-        # FIXME
-
-        pass
+        self._list = []
 
     def is_empty(self):
         """Is stack empty?
