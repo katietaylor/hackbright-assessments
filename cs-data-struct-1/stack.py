@@ -113,9 +113,7 @@ class Stack(object):
             False
         """
 
-        # FIXME
-
-        pass
+        return len(self._list) != 0
 
 if __name__ == "__main__":
     import doctest
