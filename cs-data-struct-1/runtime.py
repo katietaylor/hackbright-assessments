@@ -80,7 +80,7 @@ def sum_zero_3(numbers):
 
     Put runtime here:
     -----------------
-    [ O(n^3)         ]
+    [ O(n^2 * m)  note that m will never be greater than n/2  ]
 
     """
 
