@@ -113,7 +113,7 @@ class Stack(object):
             False
         """
 
-        return self.length() == 0
+        return not self._list
 
 if __name__ == "__main__":
     import doctest
