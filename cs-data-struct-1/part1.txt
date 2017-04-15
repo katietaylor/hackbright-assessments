@@ -17,25 +17,27 @@ Stacks and Queues
 1.  Would a stack or queue be a more appropriate data structure?
     1.1 Stack
     1.2 Queue
-    1.3 Neither is a great structure to use, since order of operations
-        doesn't follow a front to back or back to front pattern. However, you
-        could include a Queue structure in the algorithm that first broke things
-        up by their oder of operations (PEMDAS) and then started from the beginning
-        and worked to the end of the problem per each operation group. A stack
-        definitely wouldn't work because you would not want to implement
-        2 / 3 instead of 3 / 2.
-
+    1.3 A Queue would be more appropriate than a stack. However, you would also
+        need to evaluate the equation using order of operations, so you couldn't
+        evaluate this using a straight left or right expression but would break
+        it into groups of the appropriate operators and evaluate those
+        individual operators as a queue.
 
 2.  Queue examples
     2.1 Orders may use a queue because you want to process the orders in the
         order that they came in.
 
-    2.2 
+    2.2 A list of tasks that should happen in order, such as a print queue. The
+        first print job to be submitted happens before the next print job.
 
 3.  Stack examples
-    3.1
+    3.1  Pile of dishes to be washed. You will wash the dish on the top first,
+         which was also the last dish to be added. This not only makes it less
+         likely for you to break dishes but also gives the older dishes longer
+         to soak.
 
-    3.2
+    3.2  Browsing history. You want to see the most recent page that you visited
+         first because that is more likely what you are interested in at the moment.
 
 ###############################################################################
 Linked Lists
