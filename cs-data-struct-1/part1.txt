@@ -21,20 +21,20 @@ Stacks and Queues
         need to evaluate the equation using order of operations, so you couldn't
         evaluate this using a straight left or right expression but would break
         it into groups of the appropriate operators and evaluate those
-        individual operators as a queue.
+        individual operators as a queue (possibly using recursion).
 
 2.  Queue examples
     2.1 Orders may use a queue because you want to process the orders in the
         order that they came in.
 
     2.2 A list of tasks that should happen in order, such as a print queue. The
-        first print job to be submitted happens before the next print job.
+        first print job submitted happens before the next print job.
 
 3.  Stack examples
     3.1  Pile of dishes to be washed. You will wash the dish on the top first,
          which was also the last dish to be added. This not only makes it less
          likely for you to break dishes but also gives the older dishes longer
-         to soak.
+         to soak!
 
     3.2  Browsing history. You want to see the most recent page that you visited
          first because that is more likely what you are interested in at the moment.
@@ -55,15 +55,15 @@ Linked Lists
     faster to step backwards through the list.
 
 3.  Without a tail, you have to traverse the whole linked list to find the node
-    that has a next value of None. Then you can append the new node there. If you
-    don't have to travers the list and can instead jump directly to the tail node,
-    append the new node to the tail, and then reassign the tail to the new node. 
-    This reduces runtime complexity of O(n) to O(1).
+    that has a next value of None. Then you can append the new node there. With 
+    a tail, you don't have to travers the list and can instead jump directly to
+    the tail node, append the new node to the tail, and then reassign the tail
+    to the new node. This reduces runtime complexity from O(n) to O(1).
 
 ###############################################################################
 Trees
 
-1.  food, Italian, Indian, Mexican, lasagna, tikka masala, saag, burritos
+1.  food, Italian, Indian, Mexican, lasagna, pizza, tikka masala, saag, burritos
 
 2.  Assuming the algorithm used in tree.py, which searches the right side of the
     tree before the left side of the tree:
@@ -72,9 +72,10 @@ Trees
     Indian, saag tikka masala,
     Italian, pizza, Sicilian, New York-style, Chicago-style
 
-3.  In a binary search tree, every parent  can have at most 2 children (lef and
+3.  In a binary search tree, every parent can have at most 2 children (left and
     right) and the children have a sense of order. A common rule for arranging 
-    the children is that the left child is less than the right child. This makes searching a binary tree faster since you can cut the search in half each
+    the children is that the left child is less than the right child. This makes
+    searching a binary tree faster since you can cut the search in half each
     time ( O(log n) ), assuming the binary tree is well balanced.
 
 
