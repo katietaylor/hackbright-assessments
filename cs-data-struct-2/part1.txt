@@ -1,48 +1,74 @@
+Part 1: Discussion Questions
+
 ###############################################################################
 Recursion
 
-1.  
+1.  Recursion is when a function calls itself. As it calls itself, the
+    parameter(s) passed in should change until the base case has been met.
 
-2. 
+2.  The base case is necessary to know when to stop the recursion loop. Without
+    a base case, python will give you a maximum recursion depth exceeded runtime
+    error.
 
 ###############################################################################
 Graphs
 
-1.
+1.  A graph is a way to create relationships between nodes. It is similar to a
+    tree except with few restrictions, because the relationships can be both
+    directed and un-directed and the relationships can contain loops.
 
-2.
+2.  A tree is a type of graph. Not all graphs are trees, because graphs can
+    have looping connections (cyclic). Also, a single graph could have
+    disconnected nodes, all of the nodes in a tree must be connected. 
 
-3.
+3.  San Francisco public transit could be represented with a graph, showing all
+    of the muni/bart stops and routes. Each edge would represent a leg of a
+    bus trip between stops.
 
 ###############################################################################
 Performance of Different Data Structures
 
        Data Structure        | Index | Search | Add-R | Add-L | Pop-L | Pop-R
-Python List (Array)          | O(1)  |  O(n)  | O(1)  |       |       |
-Linked List                  |       |        |       |       |       |       
-Doubly-Linked List           |       |        |       |       |       |       
-Queue (as Array)             |  X    |   X    |       |   X   |       |   X
-Queue (as LL or DLL)         |  X    |   X    |       |   X   |       |   X
-Stack (as Array, LL, or DLL) |  X    |   X    |       |   X   |   X   |
-Deque (as DLL)               |  X    |   X    |       |       |       |
+Python List (Array)          | O(1)  |  O(n)  | O(1)  | O(n)  | O(n)  | O(1) 
+Linked List                  | O(n)  |  O(n)  | O(1)  | O(1)  | O(1)  | O(n) 
+Doubly-Linked List           | O(n)  |  O(n)  | O(1)  | O(1)  | O(1)  | O(1) 
+Queue (as Array)             |   X   |   X    | O(1)  |   X   | O(n)  |  X 
+Queue (as LL or DLL)         |   X   |   X    | O(1)  |   X   | O(1)  |  X 
+Stack (as Array, LL, or DLL) |   X   |   X    | O(1)  |   X   |   X   | O(1)*
+Deque (as DLL)               |   X   |   X    | O(1)  | O(1)  | O(1)  | O(1)
+
+* The stack implementation with a LL is only O(1) when popping from the right if
+  keeping the stack "reversed" so that you push and pop from the head rather than
+  the tail. 
 
 
-
-    Data Structure       | Get   |  Add   | Delete | Iterate | Memory
-Dictionary (Hash Map)    | O(1)  |  O(1)  | O(1)   |  O(n)   | medium      
-Set (Hash Map)           |       |        |        |         |       
-Binary Search Tree       |       |        |        |         |       
-Tree                     |       |        |        |         |       
-
-
+    Data Structure       |   Get   |   Add   | Delete  | Iterate | Memory
+Dictionary (Hash Map)    | O(1)    | O(1)    | O(1)    | O(n)    | medium  
+Set (Hash Map)           | O(1)    | O(1)    | O(1)    | O(n)    | medium  
+Binary Search Tree       | O(log n)| O(log n)| O(log n)| O(log n)| a little  
+Tree                     | O(n)    | O(1)    | O(1)    | O(n)    | a little  
 
 
 ###############################################################################
 Sorting
 
-1.
+1.  Bubble Sort works by looking at 2 elements in a list and swapping them if
+    the first item is larger than the second item. You iterate through the list,
+    looking at the 1st and 2nd item, then the 2nd and 3rd item, swapping a you
+    go until you reach the end. After the first pass through, the larget item of
+    the list will have "bubbled" to the end. You repeat that cycle n times.
 
-2.
+2.  Merge Sort takes 2 sorted lists and merges them together in order. To get
+    the sorted lists, it takes a list and breaks it down into smaller lists,
+    until every item in the original list is now its own list (list with only 1
+    value). The algorithm then merges the lists back together, taking 2 lists at a
+    time. Since the merge begins with lists of 1 value, it is guaranteed to begin
+    with sorted lists.
 
-3.
+3.  Quick Sort works by picking a pivot value and then shuffling the list so that
+    all values less than the pivot end up to to the left of the pivot and all
+    values greater than the pivot are on the right. This is accomplished by
+    swapping values as you iterate through the list and comparing each value
+    to the pivot. The alogrithm then repeats this process on each halved list on
+    either side of the last pivot until the whole list is sorted.
 
