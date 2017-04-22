@@ -1,0 +1,48 @@
+###############################################################################
+Recursion
+
+1.  
+
+2. 
+
+###############################################################################
+Graphs
+
+1.
+
+2.
+
+3.
+
+###############################################################################
+Performance of Different Data Structures
+
+       Data Structure        | Index | Search | Add-R | Add-L | Pop-L | Pop-R
+Python List (Array)          | O(1)  |  O(n)  | O(1)  |       |       |
+Linked List                  |       |        |       |       |       |       
+Doubly-Linked List           |       |        |       |       |       |       
+Queue (as Array)             |  X    |   X    |       |   X   |       |   X
+Queue (as LL or DLL)         |  X    |   X    |       |   X   |       |   X
+Stack (as Array, LL, or DLL) |  X    |   X    |       |   X   |   X   |
+Deque (as DLL)               |  X    |   X    |       |       |       |
+
+
+
+    Data Structure       | Get   |  Add   | Delete | Iterate | Memory
+Dictionary (Hash Map)    | O(1)  |  O(1)  | O(1)   |  O(n)   | medium      
+Set (Hash Map)           |       |        |        |         |       
+Binary Search Tree       |       |        |        |         |       
+Tree                     |       |        |        |         |       
+
+
+
+
+###############################################################################
+Sorting
+
+1.
+
+2.
+
+3.
+
