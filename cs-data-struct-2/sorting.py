@@ -7,7 +7,18 @@ def bubble_sort(lst):
         >>> bubble_sort([3, 5, 7, 2, 4, 1])
         [1, 2, 3, 4, 5, 7]
     """
-    pass
+
+    for i in range(len(lst) - 1):
+        has_swapped = False
+        for j in range(len(lst) - 1 - i):
+            if lst[j] > lst[j + 1]:
+                lst[j], lst[j + 1] = lst[j + 1], lst[j]
+                has_swapped = True
+        # check if a swap was made to see if already sorted.
+        if not has_swapped:
+            break
+
+    return lst
 
 
 def merge_lists(list1, list2):
@@ -18,7 +29,36 @@ def merge_lists(list1, list2):
     [1, 3, 4, 7, 9, 11]
     """
 
-    pass
+    merged_list = []
+
+    index_1 = 0
+    index_2 = 0
+
+    while len(merged_list) < (len(list1) + len(list2)):
+
+        if index_1 == len(list1):
+            merged_list.append(list2[index_2])
+            index_2 += 1
+
+        elif index_2 == len(list2):
+            merged_list.append(list1[index_1])
+            index_1 += 1
+
+        elif list1[index_1] < list2[index_2]:
+            merged_list.append(list1[index_1])
+            index_1 += 1
+
+        elif list1[index_2] < list1[index_1]:
+            merged_list.append(list2[index_2])
+            index_2 += 1
+
+        elif list1[index_2] == list1[index_1]:
+            merged_list.append(list1[index_1])
+            index_1 += 1
+            merged_list.append(list2[index_2])
+            index_2 += 1
+
+    return merged_list
 
 
 ##########ADVANCED##########
