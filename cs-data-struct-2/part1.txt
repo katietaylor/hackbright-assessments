@@ -14,12 +14,12 @@ Recursion
 Graphs
 
 1.  A graph is a way to create relationships between nodes. It is similar to a
-    tree except with few restrictions, because the relationships can be both
+    tree except with fewer restrictions, because the relationships can be both
     directed and un-directed and the relationships can contain loops.
 
 2.  A tree is a type of graph. Not all graphs are trees, because graphs can
     have looping connections (cyclic). Also, a single graph could have
-    disconnected nodes, all of the nodes in a tree must be connected. 
+    disconnected nodes,but all of the nodes in a tree must be connected. 
 
 3.  San Francisco public transit could be represented with a graph, showing all
     of the muni/bart stops and routes. Each edge would represent a leg of a
@@ -38,7 +38,7 @@ Stack (as Array, LL, or DLL) |   X   |   X    | O(1)  |   X   |   X   | O(1)*
 Deque (as DLL)               |   X   |   X    | O(1)  | O(1)  | O(1)  | O(1)
 
 * The stack implementation with a LL is only O(1) when popping from the right if
-  keeping the stack "reversed" so that you push and pop from the head rather than
+  the stack is "reversed" so that you push and pop from the head rather than
   the tail. 
 
 
@@ -54,7 +54,7 @@ Sorting
 
 1.  Bubble Sort works by looking at 2 elements in a list and swapping them if
     the first item is larger than the second item. You iterate through the list,
-    looking at the 1st and 2nd item, then the 2nd and 3rd item, swapping a you
+    looking at the 1st and 2nd item, then the 2nd and 3rd item, swapping as you
     go until you reach the end. After the first pass through, the larget item of
     the list will have "bubbled" to the end. You repeat that cycle n times.
 
