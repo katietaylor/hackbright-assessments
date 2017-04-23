@@ -36,22 +36,22 @@ def merge_lists(list1, list2):
 
     while len(merged_list) < (len(list1) + len(list2)):
 
-        # all values in list1 complete
+        # all values in list1 complete, append next value in list2
         if index_1 == len(list1):
             merged_list.append(list2[index_2])
             index_2 += 1
 
-        # all values in list2 complete
+        # all values in list2 complete, append next value in list1
         elif index_2 == len(list2):
             merged_list.append(list1[index_1])
             index_1 += 1
 
-        # append next value in list1
+        # append smallest value, which is the next value in list1
         elif list1[index_1] < list2[index_2]:
             merged_list.append(list1[index_1])
             index_1 += 1
 
-        # append next value in list2
+        # append smallest value, which is next value in list2
         elif list2[index_2] < list1[index_1]:
             merged_list.append(list2[index_2])
             index_2 += 1
@@ -86,10 +86,10 @@ def merge_sort(lst):
 
     midpoint = len(lst) / 2
 
-    left_list = merge_sort(lst[:midpoint])
-    right_list = merge_sort(lst[midpoint:])
+    list1 = merge_sort(lst[:midpoint])
+    list2 = merge_sort(lst[midpoint:])
 
-    return merge_lists(left_list, right_list)
+    return merge_lists(list1, list2)
 
 
 #####################################################################
